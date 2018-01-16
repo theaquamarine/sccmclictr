@@ -10,7 +10,7 @@ namespace ClientCenter.Tests
         [TestMethod()]
         public void TestCMLogParsing()
         {
-            string cmLogLine = "<![LOG[BEGIN ExecuteSystemTasks('PowerChanged')]LOG]!><time=\"07:57:18.385 + 00\" date=\"01-02-2018\" component=\"CcmExec\" context=\"\" type=\"1\" thread=\"14600\" file=\"systemtask.cpp:581\">";
+            string cmLogLine = "<![LOG[BEGIN ExecuteSystemTasks('PowerChanged')]LOG]!><time=\"07:57:18.385+00\" date=\"01-02-2018\" component=\"CcmExec\" context=\"\" type=\"1\" thread=\"14600\" file=\"systemtask.cpp:581\">";
             LogEntry cmParsingResult = LogEntry.ParseLogLine(cmLogLine);
             Assert.AreEqual("BEGIN ExecuteSystemTasks('PowerChanged')", cmParsingResult.LogText);
             Assert.AreEqual("CcmExec", cmParsingResult.Component);
