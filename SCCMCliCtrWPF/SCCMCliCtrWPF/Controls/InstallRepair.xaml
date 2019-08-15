@@ -17,7 +17,7 @@
                                 <Button Content="Repair Agent" Height="23" HorizontalAlignment="Center" Name="bt_RepairAgent" VerticalAlignment="Top" Width="175" Margin="0,5,0,0" IsEnabled="True" Click="bt_RepairAgent_Click" />
                                 <Button Content="Remove Agent" Height="23" HorizontalAlignment="Center" Name="bt_RemoveAgent" VerticalAlignment="Top" Width="175" Margin="0,5,0,0" IsEnabled="True" Click="bt_RemoveAgent_Click" />
                                 <Button Content="Install Agent..." Height="23" HorizontalAlignment="Center" Name="bt_installAgent" VerticalAlignment="Top" Width="175" Margin="0,5,0,0" IsEnabled="True" Click="bt_installAgent_Click"  />
-
+                                <Button Content="Open ccmsetup.log" Height="23" HorizontalAlignment="Center" Name="bt_OpenCCMSetup" VerticalAlignment="Top" Width="175" Margin="0,5,0,0" IsEnabled="True" Click="bt_OpenCCMSetup_Click"  />
                             </StackPanel>
                         </Grid>
                     </GroupBox>

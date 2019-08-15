@@ -298,6 +298,33 @@ namespace ClientCenter
             }
         }
 
+        private void bt_OpenCCMSetup_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: Get windir location from the target rather than assuming C:
+            //          Can't ask the client as there may not be one.
+            Mouse.OverrideCursor = Cursors.Wait;
+            try
+            {
+                Process Explorer = new Process();
+                Explorer.StartInfo.FileName = "Explorer.exe";
+
+                //Connect IPC$ if not already connected (not needed with integrated authentication)
+                if (!oAgent.ConnectIPC)
+                    oAgent.ConnectIPC = true;
+
+                string LogPath = oAgent.Client.AgentProperties.LocalSCCMAgentLogPath.Replace(':', '$');
+                Explorer.StartInfo.Arguments = @"\\" + oAgent.TargetHostname + "\\c$\\Windows\\ccmsetup\\Logs\\ccmsetup.log";
+
+                Explorer.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                Explorer.Start();
+            }
+            catch (Exception ex)
+            {
+                Listener.WriteError(ex.Message);
+            }
+            Mouse.OverrideCursor = Cursors.Arrow;
+        }
+
         private void bt_DeleteAgentCertificates_Click(object sender, RoutedEventArgs e)
         {
             Mouse.OverrideCursor = Cursors.Wait;
